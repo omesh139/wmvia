@@ -55,13 +55,20 @@ const Navbar = ({ current, onNavigate }) => {
         <div className="flex items-center justify-between h-16">
           
           {/* Logo */}
-          <div className="flex items-center gap-3">
-            <div className="h-9 w-9 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 shadow-inner" />
-            <div className="leading-tight">
-              <div className="text-base font-extrabold tracking-tight">Invention Association - WMV</div>
-              <div className="text-xs text-gray-500">Innovate • Build • Inspire</div>
-            </div>
-          </div>
+<div className="flex items-center gap-3">
+  <img
+    src="https://example.com/your-logo.png" // <-- replace with your image link
+    alt="Logo"
+    className="h-9 w-9 rounded-2xl shadow-inner object-cover"
+  />
+  <div className="leading-tight">
+    <div className="text-base font-extrabold tracking-tight">
+      Invention Association - WMV
+    </div>
+    <div className="text-xs text-gray-500">Innovate • Build • Inspire</div>
+  </div>
+</div>
+
 
           {/* Desktop menu */}
           <nav className="hidden md:flex items-center gap-1">
