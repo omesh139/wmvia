@@ -393,11 +393,15 @@ const EventsPage = () => {
 const GalleryPage = () => {
   const images = [
     "https://i.imgur.com/JmjEMLx.jpeg?q=80&w=1600&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?q=80&w=1600&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1600&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1600&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1518306727298-4c17ece2d7b5?q=80&w=1600&auto=format&fit=crop",
+    "https://i.imgur.com/RwdFGIm.jpeg?q=80&w=1600&auto=format&fit=crop",
+    "https://i.imgur.com/mxjW2FI.jpeg?q=80&w=1600&auto=format&fit=crop",
+    "https://i.imgur.com/UooIgLM.jpeg?q=80&w=1600&auto=format&fit=crop",
+    "https://i.imgur.com/dwcvTH3.jpeg?q=80&w=1600&auto=format&fit=crop",
+    "https://i.imgur.com/LtHRIoU.jpeg?q=80&w=1600&auto=format&fit=crop",
+    "https://i.imgur.com/vmbsSPE.jpeg?q=80&w=1600&auto=format&fit=crop",
+    "https://i.imgur.com/xg7kJG5.jpeg?q=80&w=1600&auto=format&fit=crop",
+    "https://i.imgur.com/oTZCEz8.jpeg?q=80&w=1600&auto=format&fit=crop",
+    "https://i.imgur.com/gGhcqnW.jpeg?q=80&w=1600&auto=format&fit=crop",
   ];
 
   return (
