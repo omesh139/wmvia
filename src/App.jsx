@@ -116,7 +116,7 @@ const HomePage = ({ onNavigate }) => {
         >
           <Chip>Welcome</Chip>
           <h1 className="mt-3 text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900">
-            School Invention Association
+            Invention Association - WMV
           </h1>
           <p className="mt-4 text-gray-700 leading-relaxed max-w-xl">
             We empower students to turn ideas into real-world solutions through
