@@ -139,9 +139,9 @@ const HomePage = ({ onNavigate }) => {
           </div>
           <div className="mt-8 grid grid-cols-3 gap-4 text-center">
             {[
-              { k: "Members", v: "120+" },
-              { k: "Projects", v: "45" },
-              { k: "Awards", v: "18" },
+              { k: "Members", v: "30+" },
+              { k: "Projects", v: "15+" },
+              { k: "Awards", v: "10+" },
             ].map((s) => (
               <Card key={s.k}>
                 <div className="text-2xl font-extrabold">{s.v}</div>
