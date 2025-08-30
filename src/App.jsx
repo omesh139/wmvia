@@ -464,10 +464,10 @@ const ContactPage = () => {
         <Card>
           <h3 className="text-lg font-bold">Send a Message</h3>
           <form action="https://formsubmit.co/wmvinventionassociation@gmail.com" method="POST" onSubmit={onSubmit} className="mt-4 space-y-4">
-            <input required placeholder="Full Name" name="name" className="w-full border rounded-xl px-4 py-3" />
-            <input type="email" name="email" required placeholder="Email" className="w-full border rounded-xl px-4 py-3" />
-            <input type="Your Title" name="Responders Title" required placeholder="Your Title" className="w-full border rounded-xl px-4 py-3" />
-            <textarea required rows={5} name="Responders Msg" placeholder="Your message…" className="w-full border rounded-xl px-4 py-3" />
+            <input required placeholder="Full Name" name="Full Name" className="w-full border rounded-xl px-4 py-3" />
+            <input type="email" name="Email" required placeholder="Email" className="w-full border rounded-xl px-4 py-3" />
+            <input type="Your Title" name="Your Title" required placeholder="Your Title" className="w-full border rounded-xl px-4 py-3" />
+            <textarea required rows={5} name="message" placeholder="message" className="w-full border rounded-xl px-4 py-3" />
             <button className="px-5 py-3 rounded-2xl bg-blue-600 text-white font-semibold shadow hover:shadow-lg transition">
               Submit
             </button>
