@@ -465,7 +465,7 @@ const ContactPage = () => {
               Walagedara National School, Western Province, Sri Lanka
             </p>
             <p className="text-gray-600">Email: info@invention.club</p>
-            <p className="text-gray-600">Phone: 011-123-4567</p>
+            <p className="text-gray-600">Phone: 072-929-0239</p>
           </Card>
           <Card>
             <h3 className="text-lg font-bold">Office Hours</h3>
@@ -510,7 +510,7 @@ const Footer = ({ onNavigate }) => (
           <div className="font-semibold">Contact</div>
           <ul className="mt-2 space-y-1 text-gray-600">
             <li>info@invention.club</li>
-            <li>011-123-4567</li>
+            <li>072-929-0239</li>
           </ul>
         </div>
       </div>
