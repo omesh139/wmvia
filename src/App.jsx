@@ -59,7 +59,7 @@ const Navbar = ({ current, onNavigate }) => {
   <img
     src="https://i.imgur.com/Ft8h7eQ.jpeg" // <-- replace with your image link
     alt="Logo"
-    className="h-9 w-9 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 shadow-inner"
+    className="h-9 w-9 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 shadow-inner border-2 border-black"
   />
   <div className="leading-tight">
     <div className="text-base font-extrabold tracking-tight">
