@@ -57,9 +57,9 @@ const Navbar = ({ current, onNavigate }) => {
           {/* Logo */}
 <div className="flex items-center gap-3">
   <img
-    src="https://example.com/your-logo.png" // <-- replace with your image link
+    src="https://i.imgur.com/Ft8h7eQ.jpeg" // <-- replace with your image link
     alt="Logo"
-    className="h-9 w-9 rounded-2xl shadow-inner object-cover"
+    className="h-9 w-9 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 shadow-inner"
   />
   <div className="leading-tight">
     <div className="text-base font-extrabold tracking-tight">
