@@ -402,6 +402,7 @@ const GalleryPage = () => {
     "https://i.imgur.com/xg7kJG5.jpeg?q=80&w=1600&auto=format&fit=crop",
     "https://i.imgur.com/oTZCEz8.jpeg?q=80&w=1600&auto=format&fit=crop",
     "https://i.imgur.com/gGhcqnW.jpeg?q=80&w=1600&auto=format&fit=crop",
+    "https://i.imgur.com/FyhKt2e.mp4?q=80&w=1600&auto=format&fit=crop",
   ];
 
   return (
