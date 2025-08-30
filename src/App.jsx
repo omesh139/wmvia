@@ -1,5 +1,6 @@
 import React, { useMemo, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react"; // add at top of file
 
 // --- Simple helpers ---
 const PageContainer = ({ children }) => (
@@ -46,13 +47,15 @@ const Navbar = ({ current, onNavigate }) => {
     { key: "contact", label: "Contact" },
   ];
 
-  // simple language toggle (English / Sinhala)
   const [lang, setLang] = React.useState("en");
+  const [menuOpen, setMenuOpen] = React.useState(false);
 
   return (
     <div className="sticky top-0 z-50 backdrop-blur bg-white/70 border-b">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
+          
+          {/* Logo */}
           <div className="flex items-center gap-3">
             <div className="h-9 w-9 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 shadow-inner" />
             <div className="leading-tight">
@@ -60,6 +63,8 @@ const Navbar = ({ current, onNavigate }) => {
               <div className="text-xs text-gray-500">Innovate • Build • Inspire</div>
             </div>
           </div>
+
+          {/* Desktop menu */}
           <nav className="hidden md:flex items-center gap-1">
             {items.map((it) => (
               <button
@@ -69,11 +74,28 @@ const Navbar = ({ current, onNavigate }) => {
                   current === it.key ? "text-blue-700 bg-blue-50" : "text-gray-700"
                 }`}
               >
-                {lang === "si" ? (it.label === "Home" ? "මුල් පිටුව" : it.label === "About" ? "අපි ගැන" : it.label === "Projects" ? "ව්‍යවසාය" : it.label === "Events" ? "සිදුවීම්" : it.label === "Gallery" ? "ගැලරිය" : it.label === "Contact" ? "සම්බන්ධ වන්න" : it.label) : it.label}
+                {lang === "si"
+                  ? it.label === "Home"
+                    ? "මුල් පිටුව"
+                    : it.label === "About"
+                    ? "අපි ගැන"
+                    : it.label === "Projects"
+                    ? "ව්‍යවසාය"
+                    : it.label === "Events"
+                    ? "සිදුවීම්"
+                    : it.label === "Gallery"
+                    ? "ගැලරිය"
+                    : it.label === "Contact"
+                    ? "සම්බන්ධ වන්න"
+                    : it.label
+                  : it.label}
               </button>
             ))}
           </nav>
+
+          {/* Right side controls */}
           <div className="flex items-center gap-3">
+            {/* Language toggle (desktop only) */}
             <div className="hidden md:block">
               <button
                 onClick={() => setLang(lang === "en" ? "si" : "en")}
@@ -83,22 +105,46 @@ const Navbar = ({ current, onNavigate }) => {
                 {lang === "en" ? "සිංහල" : "EN"}
               </button>
             </div>
-            <div className="md:hidden">
-              <select
-                className="border rounded-xl px-3 py-2"
-                value={current}
-                onChange={(e) => onNavigate(e.target.value)}
-              >
-                {items.map((it) => (
-                  <option key={it.key} value={it.key}>
-                    {it.label}
-                  </option>
-                ))}
-              </select>
-            </div>
+
+            {/* Mobile menu button */}
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="md:hidden p-2 rounded-lg hover:bg-gray-100"
+            >
+              {menuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Mobile dropdown */}
+      {menuOpen && (
+        <div className="md:hidden bg-white shadow-lg border-t">
+          <div className="flex flex-col space-y-2 px-4 py-3">
+            {items.map((it) => (
+              <button
+                key={it.key}
+                onClick={() => {
+                  onNavigate(it.key);
+                  setMenuOpen(false);
+                }}
+                className={`text-left px-3 py-2 rounded-xl text-sm font-medium ${
+                  current === it.key ? "text-blue-700 bg-blue-50" : "text-gray-700"
+                }`}
+              >
+                {it.label}
+              </button>
+            ))}
+            {/* Mobile language toggle */}
+            <button
+              onClick={() => setLang(lang === "en" ? "si" : "en")}
+              className="mt-2 px-3 py-2 rounded-xl border text-sm"
+            >
+              {lang === "en" ? "සිංහල" : "EN"}
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
