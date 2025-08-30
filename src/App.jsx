@@ -450,7 +450,7 @@ const ContactPage = () => {
   const [status, setStatus] = useState(null);
   const onSubmit = (e) => {
     e.preventDefault();
-    setStatus("Thank you! Your message has been recorded (demo).");
+    setStatus("Thank you! Your message has been recived to us.");
   };
 
   return (
@@ -463,15 +463,11 @@ const ContactPage = () => {
       <div className="grid lg:grid-cols-2 gap-8">
         <Card>
           <h3 className="text-lg font-bold">Send a Message</h3>
-          <form onSubmit={onSubmit} className="mt-4 space-y-4">
-            <input required placeholder="Full Name" className="w-full border rounded-xl px-4 py-3" />
-            <input type="email" required placeholder="Email" className="w-full border rounded-xl px-4 py-3" />
-            <select className="w-full border rounded-xl px-4 py-3">
-              <option>Get Help</option>
-              <option>To Join With Us</option>
-              <option>Inspire Project</option>
-            </select>
-            <textarea required rows={5} placeholder="Your message…" className="w-full border rounded-xl px-4 py-3" />
+          <form action="https://formsubmit.co/wmvinventionassociation@gmail.com" method="POST" onSubmit={onSubmit} className="mt-4 space-y-4">
+            <input required placeholder="Full Name" name="name" className="w-full border rounded-xl px-4 py-3" />
+            <input type="email" name="email" required placeholder="Email" className="w-full border rounded-xl px-4 py-3" />
+            <input type="Your Title" name="Responders Title" required placeholder="Your Title" className="w-full border rounded-xl px-4 py-3" />
+            <textarea required rows={5} name="Responders Msg" placeholder="Your message…" className="w-full border rounded-xl px-4 py-3" />
             <button className="px-5 py-3 rounded-2xl bg-blue-600 text-white font-semibold shadow hover:shadow-lg transition">
               Submit
             </button>
