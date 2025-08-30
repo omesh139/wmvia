@@ -392,7 +392,7 @@ const EventsPage = () => {
 
 const GalleryPage = () => {
   const images = [
-    "https://images.unsplash.com/photo-1581093458791-9d09f30a45d6?q=80&w=1600&auto=format&fit=crop",
+    "https://i.imgur.com/JmjEMLx.jpeg?q=80&w=1600&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?q=80&w=1600&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1600&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop",
