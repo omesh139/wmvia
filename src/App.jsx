@@ -456,7 +456,7 @@ const ContactPage = () => {
   return (
     <PageContainer>
       <SectionTitle
-        title="Contact & Membership"
+        title="Contact Us"
         subtitle="Have questions or want to join? Send us a message."
       />
 
@@ -467,9 +467,9 @@ const ContactPage = () => {
             <input required placeholder="Full Name" className="w-full border rounded-xl px-4 py-3" />
             <input type="email" required placeholder="Email" className="w-full border rounded-xl px-4 py-3" />
             <select className="w-full border rounded-xl px-4 py-3">
-              <option>General Inquiry</option>
-              <option>Membership</option>
-              <option>Project Collaboration</option>
+              <option>Get Help</option>
+              <option>To Join With Us</option>
+              <option>Inspire Project</option>
             </select>
             <textarea required rows={5} placeholder="Your message…" className="w-full border rounded-xl px-4 py-3" />
             <button className="px-5 py-3 rounded-2xl bg-blue-600 text-white font-semibold shadow hover:shadow-lg transition">
@@ -480,7 +480,7 @@ const ContactPage = () => {
         </Card>
         <div className="space-y-4">
           <Card>
-            <h3 className="text-lg font-bold">Find Us</h3>
+            <h3 className="text-lg font-bold">Contact Us</h3>
             <p className="mt-2 text-gray-600">
               Walagedara National School, Western Province, Sri Lanka
             </p>
@@ -490,7 +490,7 @@ const ContactPage = () => {
           <Card>
             <h3 className="text-lg font-bold">Office Hours</h3>
             <ul className="mt-2 text-gray-600 list-disc ml-5 space-y-1">
-              <li>Mon – Fri: 1.30 PM – 4.30 PM</li>
+              <li>Mon – Fri: 8.30 AM – 1.30 PM</li>
               <li>Sat: 9.00 AM – 12.00 PM</li>
             </ul>
           </Card>
