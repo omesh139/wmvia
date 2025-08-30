@@ -466,7 +466,7 @@ const ContactPage = () => {
           <form action="https://formsubmit.co/wmvinventionassociation@gmail.com" method="POST" onSubmit={onSubmit} className="mt-4 space-y-4">
             <input required placeholder="Name" name="Name" className="w-full border rounded-xl px-4 py-3" />
             <input type="email" name="email" required placeholder="email" className="w-full border rounded-xl px-4 py-3" />
-            <input type="title" name="title" required placeholder="title" className="w-full border rounded-xl px-4 py-3" />
+            <input type="text" name="title" required placeholder="title" className="w-full border rounded-xl px-4 py-3" />
             <textarea required rows={5} name="message" placeholder="message" className="w-full border rounded-xl px-4 py-3" />
             <button type="submit" className="px-5 py-3 rounded-2xl bg-blue-600 text-white font-semibold shadow hover:shadow-lg transition">
               Submit
