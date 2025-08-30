@@ -47,7 +47,6 @@ const Navbar = ({ current, onNavigate }) => {
     { key: "contact", label: "Contact" },
   ];
 
-  const [lang, setLang] = React.useState("en");
   const [menuOpen, setMenuOpen] = React.useState(false);
 
   return (
@@ -74,39 +73,13 @@ const Navbar = ({ current, onNavigate }) => {
                   current === it.key ? "text-blue-700 bg-blue-50" : "text-gray-700"
                 }`}
               >
-                {lang === "si"
-                  ? it.label === "Home"
-                    ? "මුල් පිටුව"
-                    : it.label === "About"
-                    ? "අපි ගැන"
-                    : it.label === "Projects"
-                    ? "ව්‍යවසාය"
-                    : it.label === "Events"
-                    ? "සිදුවීම්"
-                    : it.label === "Gallery"
-                    ? "ගැලරිය"
-                    : it.label === "Contact"
-                    ? "සම්බන්ධ වන්න"
-                    : it.label
-                  : it.label}
+                {it.label}
               </button>
             ))}
           </nav>
 
-          {/* Right side controls */}
+          {/* Mobile menu button */}
           <div className="flex items-center gap-3">
-            {/* Language toggle (desktop only) */}
-            <div className="hidden md:block">
-              <button
-                onClick={() => setLang(lang === "en" ? "si" : "en")}
-                className="px-3 py-2 rounded-xl border text-sm"
-                aria-label="Toggle language"
-              >
-                {lang === "en" ? "සිංහල" : "EN"}
-              </button>
-            </div>
-
-            {/* Mobile menu button */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               className="md:hidden p-2 rounded-lg hover:bg-gray-100"
@@ -119,7 +92,7 @@ const Navbar = ({ current, onNavigate }) => {
 
       {/* Mobile dropdown */}
       {menuOpen && (
-        <div className="md:hidden bg-white shadow-lg border-t">
+        <div className="md:hidden bg-grey shadow-lg border-t">
           <div className="flex flex-col space-y-2 px-4 py-3">
             {items.map((it) => (
               <button
@@ -135,19 +108,13 @@ const Navbar = ({ current, onNavigate }) => {
                 {it.label}
               </button>
             ))}
-            {/* Mobile language toggle */}
-            <button
-              onClick={() => setLang(lang === "en" ? "si" : "en")}
-              className="mt-2 px-3 py-2 rounded-xl border text-sm"
-            >
-              {lang === "en" ? "සිංහල" : "EN"}
-            </button>
           </div>
         </div>
       )}
     </div>
   );
 };
+
 
 // --- Pages ---
 const HomePage = ({ onNavigate }) => {
