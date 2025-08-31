@@ -139,56 +139,6 @@ const Navbar = ({ current, onNavigate, darkMode, setDarkMode }) => {
   );
 };
 
-// --- Pages ---
-const HomePage = ({ onNavigate }) => {
-  return (
-    <PageContainer>
-      <div className="grid lg:grid-cols-2 gap-10 items-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="order-2 lg:order-1"
-        >
-          <Chip>Welcome</Chip>
-          <h1 className="mt-3 text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100">
-            Invention Association - WMV
-          </h1>
-          <p className="mt-4 text-gray-700 dark:text-gray-300 leading-relaxed max-w-xl">
-            We empower students to turn ideas into real-world solutions through
-            hands-on projects, mentorship, and competitions.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <button
-              onClick={() => onNavigate("projects")}
-              className="px-5 py-3 rounded-2xl bg-blue-600 text-white font-semibold shadow hover:shadow-lg transition"
-            >
-              Explore Projects
-            </button>
-            <button
-              onClick={() => onNavigate("contact")}
-              className="px-5 py-3 rounded-2xl bg-white dark:bg-gray-800 border font-semibold hover:bg-gray-50 dark:hover:bg-gray-700"
-            >
-              Join Us
-            </button>
-          </div>
-        </motion.div>
-      </div>
-    </PageContainer>
-  );
-};
-
-// --- Footer ---
-const Footer = ({ onNavigate }) => (
-  <footer className="mt-10 border-t dark:border-gray-700">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid md:grid-cols-3 gap-8 text-sm">
-      <div>
-        <div className="font-extrabold">Invention Association</div>
-        <p className="text-gray-600 dark:text-gray-400 mt-2">
-          Innovate • Build • Inspire
-        </p>
-      </div>
-      <div className="grid grid-cols-2 gap-3">
         <div>
           <div className="font-semibold">Explore</div>
           <ul className="mt-2 space-y-1">
@@ -200,10 +150,7 @@ const Footer = ({ onNavigate }) => (
               ["Gallery", "gallery"],
             ].map(([label, key]) => (
               <li key={key}>
-                <button
-                  onClick={() => onNavigate(key)}
-                  className="hover:underline"
-                >
+                <button onClick={() => onNavigate(key)} className="hover:underline">
                   {label}
                 </button>
               </li>
@@ -212,7 +159,7 @@ const Footer = ({ onNavigate }) => (
         </div>
         <div>
           <div className="font-semibold">Contact</div>
-          <ul className="mt-2 space-y-1 text-gray-600 dark:text-gray-400">
+          <ul className="mt-2 space-y-1 text-gray-600">
             <li>info@invention.club</li>
             <li>072-929-0239</li>
           </ul>
