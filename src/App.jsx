@@ -578,28 +578,6 @@ export default function InventionAssociationSite() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-export default function InventionAssociationSite() {
-  const [page, setPage] = useState("home");
-  const [darkMode, setDarkMode] = useState(false); // 🌙 state for theme
-
-  useEffect(() => {
-    const applyFromHash = () => {
-      const key = window.location.hash.replace("#", "");
-      if (["home", "about", "projects", "events", "gallery", "contact"].includes(key)) {
-        setPage(key);
-      }
-    };
-    applyFromHash();
-    window.addEventListener("hashchange", applyFromHash);
-    return () => window.removeEventListener("hashchange", applyFromHash);
-  }, []);
-
-  const navigate = (key) => {
-    setPage(key);
-    window.location.hash = key;
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
     <div className={darkMode ? "dark" : ""}>
       <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-white text-gray-900 dark:from-gray-900 dark:via-gray-950 dark:to-black dark:text-gray-100 transition-colors duration-500">
