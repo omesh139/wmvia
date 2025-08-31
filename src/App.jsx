@@ -1,6 +1,6 @@
-import React, { useMemo, useState, useEffect, useRef } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Play, Pause } from "lucide-react"; // add at top of file
+import { Menu, X } from "lucide-react"; // add at top of file
 
 // --- Simple helpers ---
 const PageContainer = ({ children }) => (
@@ -431,6 +431,21 @@ const GalleryPage = () => {
         title="Gallery"
         subtitle="Snapshots from builds, tests, and exhibitions."
       />
+
+      {/* SoundCloud Player */}
+      <div className="mb-6 w-full">
+        <iframe
+          width="100%"
+          height="166"
+          scrolling="no"
+          frameBorder="no"
+          allow="autoplay"
+          src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/game-of-thrones-songs/opening-theme-game-of-thrones&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false"
+          className="w-full rounded-lg shadow-lg"
+        ></iframe>
+      </div>
+
+      {/* Image Grid */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {images.map((src, i) => (
           <motion.div key={src} whileHover={{ scale: 1.02 }}>
@@ -539,11 +554,9 @@ const Footer = ({ onNavigate }) => (
 );
 
 export default function InventionAssociationSite() {
-  // -------------------
-  // Page Navigation
-  // -------------------
   const [page, setPage] = useState("home");
 
+  // Optional: hash-based navigation for easy preview
   useEffect(() => {
     const applyFromHash = () => {
       const key = window.location.hash.replace("#", "");
@@ -562,35 +575,10 @@ export default function InventionAssociationSite() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // -------------------
-  // Background Music
-  // -------------------
-  const audioRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(true);
-
-  // Replace with your own song URL
-  const songUrl = "https://soundcloud.com/game-of-thrones-songs/opening-theme-game-of-thrones?si=f98fd811ffc2465eb5c037a5ade0f300&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing";
-
-  const toggleMusic = () => {
-    if (!audioRef.current) return;
-    if (audioRef.current.paused) {
-      audioRef.current.play();
-      setIsPlaying(true);
-    } else {
-      audioRef.current.pause();
-      setIsPlaying(false);
-    }
-  };
-
-  // -------------------
-  // JSX
-  // -------------------
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-white text-gray-900">
-      {/* Navbar */}
       <Navbar current={page} onNavigate={navigate} />
 
-      {/* Page Content */}
       <AnimatePresence mode="wait">
         {page === "home" && <HomePage key="home" onNavigate={navigate} />}
         {page === "about" && <AboutPage key="about" />}
@@ -600,19 +588,7 @@ export default function InventionAssociationSite() {
         {page === "contact" && <ContactPage key="contact" />}
       </AnimatePresence>
 
-      {/* Footer */}
       <Footer onNavigate={navigate} />
-
-      {/* Background Music */}
-      <audio ref={audioRef} src={songUrl} autoPlay loop />
-
-      {/* Floating Play/Pause Button */}
-      <button
-        onClick={toggleMusic}
-        className="fixed bottom-5 right-5 p-4 bg-yellow-500 rounded-full shadow-lg hover:bg-yellow-600 transition-colors flex items-center justify-center text-white text-xl font-bold"
-      >
-        {isPlaying ? "⏸" : "▶️"}
-      </button>
     </div>
   );
 }
