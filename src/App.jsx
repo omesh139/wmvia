@@ -434,26 +434,27 @@ const GalleryPage = () => {
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {items.map((src, i) => (
-          <motion.div key={src} whileHover={{ scale: 1.02 }}>
+          <motion.div key={i} whileHover={{ scale: 1.02 }}>
             {src.endsWith(".mp4") ? (
-              // Video
+              // MP4 Video
               <video
                 src={src}
                 controls
                 className="w-full h-56 object-cover rounded-2xl shadow-md"
               />
-            ) : src.includes("youtube.com") || src.includes("youtu.be") ? (
-              // YouTube video iframe example
-              <iframe
-                width="100%"
-                height="224"
-                src={src}
-                title={`video-${i}`}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="rounded-2xl shadow-md"
-              ></iframe>
+            ) : src.startsWith("https://www.youtube.com/embed/") ? (
+              // Iframe Video
+              <div className="w-full h-56 rounded-2xl shadow-md overflow-hidden">
+                <iframe
+                  src={src}
+                  title={`video-${i}`}
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
             ) : (
               // Image
               <img
