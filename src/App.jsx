@@ -1,6 +1,6 @@
 import React, { useMemo, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react"; // add at top of file
+import { Menu, X, Moon, Sun } from "lucide-react";
 
 // --- Simple helpers ---
 const PageContainer = ({ children }) => (
@@ -37,7 +37,7 @@ const SectionTitle = ({ title, subtitle }) => (
 );
 
 // --- Navbar ---
-const Navbar = ({ current, onNavigate }) => {
+const Navbar = ({ current, onNavigate, darkMode, setDarkMode }) => {
   const items = [
     { key: "home", label: "Home" },
     { key: "about", label: "About" },
@@ -96,6 +96,24 @@ const Navbar = ({ current, onNavigate }) => {
           </div>
         </div>
       </div>
+      <div className="flex items-center gap-3">
+  {/* Theme toggle */}
+  <button
+    onClick={() => setDarkMode(!darkMode)}
+    className="p-2 rounded-lg border hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+    aria-label="Toggle theme"
+  >
+    {darkMode ? <Sun size={18} /> : <Moon size={18} />}
+  </button>
+
+  {/* Mobile menu button */}
+  <button
+    onClick={() => setMenuOpen(!menuOpen)}
+    className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+  >
+    {menuOpen ? <X size={24} /> : <Menu size={24} />}
+  </button>
+</div>
 
       {/* Mobile dropdown */}
       {menuOpen && (
