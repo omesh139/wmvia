@@ -1,6 +1,46 @@
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useMemo, useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react"; // add at top of file
+import { Menu, X, Play, Pause } from "lucide-react"; // add at top of file
+
+function App() {
+  // 1️⃣ Hooks and logic must be at the top of the function
+  const audioRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  const songUrl = "https://files.fm/f/ubw5kqxdvz";
+
+  const toggleMusic = () => {
+    if (!audioRef.current) return;
+    if (audioRef.current.paused) {
+      audioRef.current.play();
+      setIsPlaying(true);
+    } else {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  // 2️⃣ JSX returned goes below
+  return (
+    <div className="App">
+      {/* Audio element */}
+      <audio ref={audioRef} src={songUrl} autoPlay loop />
+
+      {/* Floating Play/Pause Button */}
+      <button
+        onClick={toggleMusic}
+        className="fixed bottom-5 right-5 p-4 bg-yellow-500 rounded-full shadow-lg hover:bg-yellow-600 transition-colors flex items-center justify-center"
+      >
+        {isPlaying ? <Pause className="w-6 h-6 text-white" /> : <Play className="w-6 h-6 text-white" />}
+      </button>
+
+      {/* Your other content */}
+      <h1 className="text-4xl text-center mt-20">Welcome!</h1>
+    </div>
+  );
+}
+
+export default App;
 
 // --- Simple helpers ---
 const PageContainer = ({ children }) => (
