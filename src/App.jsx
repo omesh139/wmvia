@@ -431,20 +431,6 @@ const GalleryPage = () => {
         title="Gallery"
         subtitle="Snapshots from builds, tests, and exhibitions."
       />
-
-      {/* SoundCloud Player */}
-      <div className="mb-6 w-full">
-        <iframe
-          width="100%"
-          height="166"
-          scrolling="no"
-          frameBorder="no"
-          allow="autoplay"
-          src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/game-of-thrones-songs/opening-theme-game-of-thrones&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false"
-          className="w-full rounded-lg shadow-lg"
-        ></iframe>
-      </div>
-
       {/* Image Grid */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {images.map((src, i) => (
