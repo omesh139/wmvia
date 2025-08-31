@@ -569,7 +569,7 @@ export default function InventionAssociationSite() {
   const [isPlaying, setIsPlaying] = useState(true);
 
   // Replace with your own song URL
-  const songUrl = "https://www.example.com/path-to-your-song.mp3";
+  const songUrl = "https://soundcloud.com/game-of-thrones-songs/opening-theme-game-of-thrones?si=f98fd811ffc2465eb5c037a5ade0f300&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing";
 
   const toggleMusic = () => {
     if (!audioRef.current) return;
