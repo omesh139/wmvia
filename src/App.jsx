@@ -2,46 +2,6 @@ import React, { useMemo, useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Play, Pause } from "lucide-react"; // add at top of file
 
-function App() {
-  // 1️⃣ Hooks and logic must be at the top of the function
-  const audioRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(true);
-
-  const songUrl = "https://files.fm/f/ubw5kqxdvz";
-
-  const toggleMusic = () => {
-    if (!audioRef.current) return;
-    if (audioRef.current.paused) {
-      audioRef.current.play();
-      setIsPlaying(true);
-    } else {
-      audioRef.current.pause();
-      setIsPlaying(false);
-    }
-  };
-
-  // 2️⃣ JSX returned goes below
-  return (
-    <div className="App">
-      {/* Audio element */}
-      <audio ref={audioRef} src={songUrl} autoPlay loop />
-
-      {/* Floating Play/Pause Button */}
-      <button
-        onClick={toggleMusic}
-        className="fixed bottom-5 right-5 p-4 bg-yellow-500 rounded-full shadow-lg hover:bg-yellow-600 transition-colors flex items-center justify-center"
-      >
-        {isPlaying ? <Pause className="w-6 h-6 text-white" /> : <Play className="w-6 h-6 text-white" />}
-      </button>
-
-      {/* Your other content */}
-      <h1 className="text-4xl text-center mt-20">Welcome!</h1>
-    </div>
-  );
-}
-
-export default App;
-
 // --- Simple helpers ---
 const PageContainer = ({ children }) => (
   <motion.main
@@ -579,9 +539,11 @@ const Footer = ({ onNavigate }) => (
 );
 
 export default function InventionAssociationSite() {
+  // -------------------
+  // Page Navigation
+  // -------------------
   const [page, setPage] = useState("home");
 
-  // Optional: hash-based navigation for easy preview
   useEffect(() => {
     const applyFromHash = () => {
       const key = window.location.hash.replace("#", "");
@@ -600,10 +562,35 @@ export default function InventionAssociationSite() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  // -------------------
+  // Background Music
+  // -------------------
+  const audioRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  // Replace with your own song URL
+  const songUrl = "https://www.example.com/path-to-your-song.mp3";
+
+  const toggleMusic = () => {
+    if (!audioRef.current) return;
+    if (audioRef.current.paused) {
+      audioRef.current.play();
+      setIsPlaying(true);
+    } else {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  // -------------------
+  // JSX
+  // -------------------
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-white text-gray-900">
+      {/* Navbar */}
       <Navbar current={page} onNavigate={navigate} />
 
+      {/* Page Content */}
       <AnimatePresence mode="wait">
         {page === "home" && <HomePage key="home" onNavigate={navigate} />}
         {page === "about" && <AboutPage key="about" />}
@@ -613,7 +600,19 @@ export default function InventionAssociationSite() {
         {page === "contact" && <ContactPage key="contact" />}
       </AnimatePresence>
 
+      {/* Footer */}
       <Footer onNavigate={navigate} />
+
+      {/* Background Music */}
+      <audio ref={audioRef} src={songUrl} autoPlay loop />
+
+      {/* Floating Play/Pause Button */}
+      <button
+        onClick={toggleMusic}
+        className="fixed bottom-5 right-5 p-4 bg-yellow-500 rounded-full shadow-lg hover:bg-yellow-600 transition-colors flex items-center justify-center text-white text-xl font-bold"
+      >
+        {isPlaying ? "⏸" : "▶️"}
+      </button>
     </div>
   );
 }
