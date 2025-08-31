@@ -431,15 +431,37 @@ const GalleryPage = () => {
         title="Gallery"
         subtitle="Snapshots from builds, tests, and exhibitions."
       />
-      {/* Image Grid */}
+
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {images.map((src, i) => (
+        {items.map((src, i) => (
           <motion.div key={src} whileHover={{ scale: 1.02 }}>
-            <img
-              src={src}
-              alt={`gallery-${i}`}
-              className="w-full h-56 object-cover rounded-2xl shadow-md"
-            />
+            {src.endsWith(".mp4") ? (
+              // Video
+              <video
+                src={src}
+                controls
+                className="w-full h-56 object-cover rounded-2xl shadow-md"
+              />
+            ) : src.includes("youtube.com") || src.includes("youtu.be") ? (
+              // YouTube video iframe example
+              <iframe
+                width="100%"
+                height="224"
+                src={src}
+                title={`video-${i}`}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="rounded-2xl shadow-md"
+              ></iframe>
+            ) : (
+              // Image
+              <img
+                src={src}
+                alt={`gallery-${i}`}
+                className="w-full h-56 object-cover rounded-2xl shadow-md"
+              />
+            )}
           </motion.div>
         ))}
       </div>
